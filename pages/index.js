@@ -42,12 +42,25 @@ export default function Home() {
   };
 
   if (enviado) {
-    return <div style={{ textAlign: 'center', color: 'green', fontSize: '18px' }}>Obrigado pela sua resposta!</div>;
+    return (
+      <div style={{ textAlign: 'center', color: 'green', fontSize: '18px' }}>
+        Obrigado pela sua resposta!
+      </div>
+    );
   }
 
   return (
-    <form onSubmit={handleSubmit} style={{ maxWidth: 500, margin: '0 auto', padding: 20, background: '#fff', borderRadius: 8, boxShadow: '0 2px 4px rgba(0,0,0,0.1)' }}>
-      <h1 style={{ fontSize: 24, fontWeight: 'bold', marginBottom: 20, textAlign: 'center' }}>Pesquisa de Satisfação</h1>
+    <form onSubmit={handleSubmit} style={{
+      maxWidth: 500,
+      margin: '0 auto',
+      padding: 20,
+      background: '#fff',
+      borderRadius: 8,
+      boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
+    }}>
+      <h1 style={{ fontSize: 24, fontWeight: 'bold', marginBottom: 20, textAlign: 'center' }}>
+        Pesquisa de Satisfação
+      </h1>
 
       <label style={{ display: 'block', marginBottom: 10 }}>
         <span style={{ display: 'block', marginBottom: 5 }}>Número da Suíte:</span>
@@ -61,7 +74,9 @@ export default function Home() {
       </label>
 
       <div style={{ marginBottom: 20 }}>
-        <p style={{ marginBottom: 10 }}>De 0 a 10, o quanto você recomendaria o Cerro Azul Hotel Fazenda para um amigo ou familiar?</p>
+        <p style={{ marginBottom: 10 }}>
+          De 0 a 10, o quanto você recomendaria o Cerro Azul Hotel Fazenda para um amigo ou familiar?
+        </p>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6 }}>
           {Array.from({ length: 11 }, (_, i) => (
             <button
@@ -91,4 +106,20 @@ export default function Home() {
           value={comentario}
           onChange={(e) => setComentario(e.target.value)}
           rows={4}
-          style={{ width: '100%', padding: 8, borderRadius: 4, border:
+          style={{ width: '100%', padding: 8, borderRadius: 4, border: '1px solid #ccc' }}
+        />
+      </label>
+
+      <button type="submit" style={{
+        width: '100%',
+        padding: 10,
+        backgroundColor: '#388e3c',
+        color: '#fff',
+        border: 'none',
+        borderRadius: 4
+      }}>
+        Enviar resposta
+      </button>
+    </form>
+  );
+}
